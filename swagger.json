@@ -106,6 +106,12 @@
       "description": "An OrderResponse response model\n\nThis is used for returning a response with a single order as body",
       "schema": {
         "$ref": "#/definitions/order"
+      },
+      "headers": {
+        "Rate-Limit-Remaining": {
+          "type": "string",
+          "description": "Get number of rate limted requests remaining"
+        }
       }
     },
     "validationError": {

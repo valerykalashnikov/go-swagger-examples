@@ -37,6 +37,10 @@ type OrderBodyParams struct {
 //
 // swagger:response orderResponse
 type OrderResponse struct {
+	//Get number of rate limted requests remaining
+	//
+	RateLimitRemaining string `json:"Rate-Limit-Remaining"`
+	//
 	// in: body
 	Payload *Order `json:"order"`
 }
