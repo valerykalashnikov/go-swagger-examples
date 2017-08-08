@@ -19,6 +19,38 @@
   "basePath": "/",
   "paths": {
     "/orders": {
+      "get": {
+        "description": "List of orders made by current user",
+        "tags": [
+          "orders"
+        ],
+        "summary": "Handler returning list of orders.",
+        "operationId": "listOrder",
+        "parameters": [
+          {
+            "maximum": 12,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32",
+            "x-go-name": "Limit",
+            "description": "List order limitations.",
+            "name": "limit",
+            "in": "query",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "order",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/order"
+              }
+            }
+          }
+        }
+      },
       "post": {
         "tags": [
           "orders"

@@ -31,6 +31,18 @@ type OrderBodyParams struct {
 	Order *Order `json:"order"`
 }
 
+// An OrderQueryParams model.
+//
+// swagger:parameters listOrder
+type OrderQueryParams struct {
+	// List order limitations.
+	//
+	// required: true
+	// minimum: 1
+	// maximum: 12
+	Limit int32 `json:"limit"`
+}
+
 // An OrderResponse response model
 //
 // This is used for returning a response with a single order as body
@@ -65,6 +77,18 @@ type ValidationError struct {
 //        200: orderResponse
 //        422: validationError
 func CreateOrder(w http.ResponseWriter, req *http.Request) {
+	// your code here
+}
+
+// GetOrders swagger:route GET /orders orders listOrder
+//
+// Handler returning list of orders.
+//
+// List of orders made by current user
+//
+// Responses:
+// 		    200: []order
+func ListOrder(w http.ResponseWriter, r *http.Request) {
 	// your code here
 }
 
