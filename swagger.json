@@ -78,6 +78,34 @@
           }
         }
       }
+    },
+    "/users{nickname}": {
+      "get": {
+        "description": "Information about user",
+        "tags": [
+          "users"
+        ],
+        "summary": "Handler returning information about user.",
+        "operationId": "getUserByNickname",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "Nickname",
+            "description": "The nickname of user",
+            "name": "nickname",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "user",
+            "schema": {
+              "$ref": "#/definitions/user"
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -130,6 +158,29 @@
         }
       },
       "x-go-name": "Order",
+      "x-go-package": "github.com/valerykalashnikov/go-swagger-examples"
+    },
+    "user": {
+      "type": "object",
+      "title": "User available to create an order.",
+      "required": [
+        "id",
+        "nickname"
+      ],
+      "properties": {
+        "id": {
+          "description": "ID of user",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "ID"
+        },
+        "nickname": {
+          "description": "nickname of user.",
+          "type": "string",
+          "x-go-name": "Nickname"
+        }
+      },
+      "x-go-name": "User",
       "x-go-package": "github.com/valerykalashnikov/go-swagger-examples"
     }
   },

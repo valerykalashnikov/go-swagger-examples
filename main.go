@@ -57,6 +57,18 @@ type OrderResponse struct {
 	Payload *Order `json:"order"`
 }
 
+// A UserNameParams parameter model.
+//
+// This is used for operations that want the ID of a user in the path
+// swagger:parameters getUserByNickname
+type UserNameParams struct {
+	// The nickname of user
+	//
+	// in: path
+	// required: true
+	Nickname string `json:"nickname"`
+}
+
 // A ValidationError is a swagger response to represent error
 //
 // swagger:response validationError
@@ -89,6 +101,18 @@ func CreateOrder(w http.ResponseWriter, req *http.Request) {
 // Responses:
 // 		    200: []order
 func ListOrder(w http.ResponseWriter, r *http.Request) {
+	// your code here
+}
+
+// Me swagger:route GET /users{nickname} users getUserByNickname
+//
+// Handler returning information about user.
+//
+// Information about user
+//
+// Responses:
+// 		    200: user
+func GetUserByNickname(w http.ResponseWriter, r *http.Request) {
 	// your code here
 }
 
